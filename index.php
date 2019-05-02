@@ -204,7 +204,7 @@
       $stmtGetId = $conn->query($queryGetId);
       $data = $stmtGetId->fetchAll();
       if (count($data) > 0) {
-        $maxId = (int) $data[0]['id']; 
+        $maxId = ((int) $data[0]['id']) + 1; 
       } else {
         $maxId = 1;
       }
