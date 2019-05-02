@@ -174,6 +174,7 @@
         <th>Nama</th>
         <th>Kelas</th>
         <th>Sekolah</th>
+        <th>Tanggal</th>
       </tr>
     </thead>
     <tbody>
@@ -209,7 +210,7 @@
         $maxId = 1;
       }
 
-      $query = "INSERT INTO sekolah (id, nama, kelas, sekolah) VALUES (?, ?, ?, ?)";
+      $query = "INSERT INTO sekolah (id, nama, kelas, sekolah, tanggal) VALUES (?, ?, ?, ?, CAST(GETDATE() AS DATE))";
       $stmt = $conn->prepare($query);
       $stmt->bindValue(1, 5);
       $stmt->bindValue(2, $nama);
@@ -230,6 +231,7 @@
       echo "<td>".$item['nama']."</td>";
       echo "<td>".$item['kelas']."</td>";
       echo "<td>".$item['sekolah']."</td>";
+      echo "<td>".$item['tanggal']."</td>";
       echo "</tr>";
     }
   }
